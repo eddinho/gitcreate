@@ -11,4 +11,9 @@ sudo cp ~/dev/gitcreate/gitcreate /usr/local/bin/
 sudo chmod +x /usr/local/bin/gitcreate
 
 gitcreate
+```
+
+## Credit
+https://gist.github.com/robwierzbowski/5430952/
+
 
