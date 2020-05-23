@@ -1,6 +1,5 @@
 #!/bin/bash
 
-# https://gist.github.com/robwierzbowski/5430952/
 # Create and push to a new github repo from the command line.  
 # Grabs sensible defaults from the containing folder and `.gitconfig`.  
 # Refinements welcome.
@@ -33,7 +32,7 @@ esac
 
 # create repo
 echo "Creating Github repository '$reponame' ..."
-curl -u $username https://api.github.com/user/repos -d '{"name":"'$reponame'"}'
+curl -u $username https://api.github.com/user/repos -d "{\"name\": \"${reponame:-${dir_name}}\", \"description\": \"${description}\", \"private\": true, \"has_issues\": true, \"has_downloads\": true, \"has_wiki\": false}"
 echo " done."
 
 # create empty README.md
@@ -47,7 +46,7 @@ git init
 git add -A
 git commit -m "first commit"
 git remote rm origin
-git remote add origin https://github.com/$username/$reponame.git
+git remote add origin https://github.com/$username$reponame.git
 git push -u origin master
 echo " done."
 
